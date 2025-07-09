@@ -1,12 +1,67 @@
-# React + Vite
+## 🖼️ github-webhooks-ui (Frontend React App)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **frontend React app** that fetches GitHub Webhook event data from the Flask API and displays it beautifully.
 
-Currently, two official plugins are available:
+### 🔗 Live UI Deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* ["— View GitHub events like push, pull requests, and merges visually."](https://github-webhooks-ui.vercel.app)
+  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🧠 Tech Stack
+
+* React.js (Vite)
+* Axios
+* Tailwind CSS (optional)
+* Vercel (Frontend Hosting)
+
+---
+
+### ⚙️ Features
+
+* Fetches data from Flask API `/events`
+* Polls every 15 seconds for new events
+* Displays data based on event type:
+
+  * PUSH
+  * PULL\_REQUEST
+  * MERGE
+
+---
+
+### 🖥️ Backend Link
+
+This app fetches its data from the backend Flask repo:
+
+* 🔗 [webhook-repo (Backend)](https://github.com/Wamiquemashhadi03/webhook-repo)
+* 🌐 [Live API Endpoint](https://webhook-repo-three.vercel.app/events)
+
+---
+
+### 📸 Screenshot
+
+![screenshot](./Screenshot.png) <!-- Replace with your screenshot filename if needed -->
+
+---
+
+### 🛠️ Run Locally
+
+```bash
+git clone https://github.com/Wamiquemashhadi03/github-webhooks-ui.git
+cd github-webhooks-ui
+npm install
+npm run dev
+```
+
+---
+
+### 📜 License
+
+MIT License
+
+---
+
+### 👨‍💻 Author
+
+Made by [Wamique Mashhadi](https://github.com/Wamiquemashhadi03)
