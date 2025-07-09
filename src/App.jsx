@@ -4,25 +4,28 @@ import './App.css';
 
 const App = () => {
   const [events, setEvents] = useState([]);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/events`);
-        if (!response.data || !Array.isArray(response.data)) {
-          throw new Error('Invalid data format received from API');
-        }
-        console.log("Fetched Events:", response.data);  // Debug output
         setEvents(response.data);
-      } catch (error) {
-        console.error(' Error fetching events:', error);
+        setError(false);
+      } catch (err) {
+        console.error('Error fetching events:', err);
+        setError(true);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchEvents(); // Initial fetch
     const interval = setInterval(fetchEvents, 15000); // Poll every 15 sec
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval); // Cleanup
   }, []);
 
   return (
@@ -30,7 +33,9 @@ const App = () => {
       <h1>GitHub Repository Events</h1>
 
       <ul>
-        {events.length === 0 && <li>No events yet</li>}
+        {loading && <li>Loading events...</li>}
+        {error && !loading && <li>Error loading events.</li>}
+        {!loading && !error && events.length === 0 && <li>No events yet.</li>}
 
         {events.map((event) => {
           const time = new Date(event.timestamp).toUTCString();
