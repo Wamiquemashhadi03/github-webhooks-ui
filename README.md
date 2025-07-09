@@ -13,7 +13,6 @@ This is the **frontend React app** that fetches GitHub Webhook event data from t
 
 * React.js (Vite)
 * Axios
-* Tailwind CSS (optional)
 * Vercel (Frontend Hosting)
 
 ---
@@ -41,7 +40,8 @@ This app fetches its data from the backend Flask repo:
 
 ### 📸 Screenshot
 
-![screenshot](./Screenshot.png) <!-- Replace with your screenshot filename if needed -->
+![Screenshot](https://github-webhooks-ui.vercel.app/Screenshot.png)
+
 
 ---
 
